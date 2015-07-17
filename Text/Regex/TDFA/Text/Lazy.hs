@@ -1,4 +1,4 @@
-{-| 
+{-|
 Module      :  Text.Regex.TDFA.Text.Lazy
 Copyright   :  Chris Kuklewicz 2007-2009, shelarcy 2012
 License     :  BSD-style (see the file LICENSE)
@@ -9,7 +9,7 @@ Portability :  GHC (uses text)
 
 This modules provides 'RegexMaker' and 'RegexLike' instances for using
 'Text' with the TDFA backend ("Text.Regex.TDFA.NewDFA.Engine" and
-"Text.Regex.TDFA.NewDFA.Tester"). 
+"Text.Regex.TDFA.NewDFA.Tester").
 
 This exports instances of the high level API and the medium level
 API of 'compile','execute', and 'regexec'.
@@ -23,7 +23,7 @@ module Text.Regex.TDFA.Text.Lazy(
  ,regexec
  ) where
 
-import Data.Array.IArray((!),elems,amap)
+import Data.Array.IArray(Array,(!),elems,amap)
 import qualified Data.Text.Lazy as L(Text,empty,take,drop,uncons,unpack)
 
 import Text.Regex.Base(MatchArray,RegexContext(..),Extract(..),RegexMaker(..),RegexLike(..))
@@ -74,7 +74,8 @@ instance RegexLike Regex L.Text where
                ,after (o+l) source))
          (matchOnce regex source)
   matchAllText regex source =
-    let go i _ _ | i `seq` False = undefined
+    let go :: Int -> L.Text -> [Array Int (Int, Int)] -> [Array Int (L.Text, (Int, Int))]
+        go i _ _ | i `seq` False = undefined
         go _i _t [] = []
         go i t (x:xs) =
           let (off0,len0) = x!0

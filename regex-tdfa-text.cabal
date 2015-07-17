@@ -1,11 +1,10 @@
 name:                regex-tdfa-text
 Cabal-Version:       >= 1.6
-version:             1.0.0.2
-x-revision: 2
+version:             1.0.0.3
 synopsis:            Text interface for regex-tdfa
 description:         This provides text interface for regex-tdfa.
                      .
-                     This should be part of regex-tdfa package. But my patches are not accepted yet. 
+                     This should be part of regex-tdfa package. But my patches are not accepted yet.
                      So, I made a separate package. If you are interested in my patches, see
                      <http://hub.darcs.net/shelarcy/regex-base> and <http://hub.darcs.net/shelarcy/regex-tdfa>.
 category:            Text
