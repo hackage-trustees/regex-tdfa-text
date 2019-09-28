@@ -38,9 +38,6 @@ import Text.Regex.TDFA.NewDFA.Uncons(Uncons(uncons))
 import qualified Text.Regex.TDFA.NewDFA.Engine as Engine(execMatch)
 import qualified Text.Regex.TDFA.NewDFA.Tester as Tester(matchTest)
 
-instance Extract L.Text where
-  before = L.take . toEnum; after = L.drop . toEnum; empty = L.empty
-
 instance RegexContext Regex L.Text L.Text where
   match = polymatch
   matchM = polymatchM
